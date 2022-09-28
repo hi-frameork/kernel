@@ -45,7 +45,8 @@ class DefaultCommand extends Command
         return $this;
     }
 
-    public function execute(Argument $argument)
+    public function execute(Argument $argument): bool
     {
+        return true;
     }
 }
