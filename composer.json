@@ -14,14 +14,14 @@
     "autoload": {
         "psr-4": {
             "Hi\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Hi\\Tests\\": "tests/"
         },
         "files": [
             "functions.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Hi\\Tests\\": "tests/"
+        }
     }
 }
