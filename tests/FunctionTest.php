@@ -26,7 +26,7 @@ class FunctionTest extends TestCase
 
     public function testConfig()
     {
-        $this->assertSame('hi-server', config('application.name'));
+        $this->assertSame('hi-framework', config('application.name'));
         $this->assertSame(null, config('server'));
     }
 
