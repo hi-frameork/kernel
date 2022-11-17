@@ -11,7 +11,7 @@ class DefaultCommand extends Command
     /**
      * 服务名称
      */
-    protected string $title = 'Hi Framework';
+    protected string $title = '> Hi Framework';
 
     /**
      * 服务别名
@@ -21,7 +21,7 @@ class DefaultCommand extends Command
     /**
      * 服务介绍
      */
-    protected string $description = '高性能轻量级 Web 框架';
+    protected string $description = '  高性能轻量级 Web 框架';
 
     /**
      * 使用示例
