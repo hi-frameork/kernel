@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Hi\Kernel\Console;
 
+use AlecRabbit\ConsoleColour\Themes;
 use Hi\Kernel\Argument;
 
 abstract class Command
@@ -67,16 +68,27 @@ abstract class Command
     {
         $content = '';
 
-        $content .= $this->title . PHP_EOL;
-        $content .= $this->description . PHP_EOL;
-        $content .= PHP_EOL;
+        $theme = new Themes();
 
-        $content .= '使用示例:' . PHP_EOL;
-        $content .= $this->example . PHP_EOL;
+        $content .= $theme->dark($this->title) . PHP_EOL;
+        $content .= $theme->dark($this->description) . PHP_EOL;
         $content .= PHP_EOL;
+        fwrite(STDOUT, $content);
 
+        $content = $theme->green('使用示例:') . PHP_EOL;
+        $content .= '  ' . $theme->cyan($this->example) . PHP_EOL;
+        $content .= PHP_EOL;
+        fwrite(STDOUT, $content);
+
+        $maxLen = 0;
         foreach ($this->actions as $action => $description) {
-            $content .= sprintf('%s %30s', $action, $description) . PHP_EOL;
+            $maxLen = strlen($action) > $maxLen ? strlen($action) : $maxLen;
+        }
+        $maxLen += 6;
+
+        $content = $theme->green('可用命令:') . PHP_EOL;
+        foreach ($this->actions as $action => $description) {
+            $content .= '  ' . $theme->whiteBold(str_pad($action, $maxLen, ' ', STR_PAD_RIGHT)) . $description . PHP_EOL;
         }
         $content .= PHP_EOL;
 

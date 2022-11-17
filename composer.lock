@@ -4,8 +4,118 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db6f7aab5dcd16640e6790f6f53fd912",
+    "content-hash": "7dc82cc24b7779603f2ba62dd8f49494",
     "packages": [
+        {
+            "name": "alecrabbit/php-cli-tools",
+            "version": "0.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alecrabbit/php-cli-tools.git",
+                "reference": "962a6c4396a18081efe08561dd76bacdd4e3163b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-cli-tools/zipball/962a6c4396a18081efe08561dd76bacdd4e3163b",
+                "reference": "962a6c4396a18081efe08561dd76bacdd4e3163b",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "alecrabbit/php-helpers": "^0.7 || ^0.8 ",
+                "nunomaduro/collision": "^3.0",
+                "phpunit/phpunit": "^8.0",
+                "symfony/var-dumper": "^4.2"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/bootstrap.php"
+                ],
+                "psr-4": {
+                    "AlecRabbit\\Cli\\": "src\\Cli"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "CLI tools for php.",
+            "keywords": [
+                "ansi",
+                "cli",
+                "console",
+                "control",
+                "height",
+                "terminal",
+                "title",
+                "width"
+            ],
+            "support": {
+                "issues": "https://github.com/alecrabbit/php-cli-tools/issues",
+                "source": "https://github.com/alecrabbit/php-cli-tools/tree/develop"
+            },
+            "time": "2019-11-01T12:16:39+00:00"
+        },
+        {
+            "name": "alecrabbit/php-console-colour",
+            "version": "0.10.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/alecrabbit/php-console-colour.git",
+                "reference": "f82a0933f1699c51aa0842475f6e09b0d519071d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/alecrabbit/php-console-colour/zipball/f82a0933f1699c51aa0842475f6e09b0d519071d",
+                "reference": "f82a0933f1699c51aa0842475f6e09b0d519071d",
+                "shasum": ""
+            },
+            "require": {
+                "alecrabbit/php-cli-tools": "^0.6",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "alecrabbit/php-helpers": "^0.8",
+                "nunomaduro/collision": "^4.2",
+                "phpunit/phpunit": "^8.5",
+                "symfony/var-dumper": "^5.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "AlecRabbit\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Helps to do colored console output.",
+            "keywords": [
+                "ansi",
+                "color",
+                "colour",
+                "console",
+                "height",
+                "output",
+                "terminal",
+                "width"
+            ],
+            "support": {
+                "issues": "https://github.com/alecrabbit/php-console-colour/issues",
+                "source": "https://github.com/alecrabbit/php-console-colour/tree/0.10.1"
+            },
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/alecrabbit",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2021-07-30T08:19:31+00:00"
+        },
         {
             "name": "psr/container",
             "version": "2.0.2",
