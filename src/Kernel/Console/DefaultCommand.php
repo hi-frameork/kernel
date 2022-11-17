@@ -21,7 +21,7 @@ class DefaultCommand extends Command
     /**
      * 服务介绍
      */
-    protected string $description = '  高性能轻量级 Web 框架';
+    protected string $description = '  Keep simple, keep reliable.';
 
     /**
      * 使用示例
