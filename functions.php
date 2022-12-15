@@ -75,3 +75,17 @@ function debug(string $message, array $context = [])
 {
     app('logger')->debug($message, $context);
 }
+
+if (!function_exists('backtrace')) {
+    /**
+     * 返回指定调用回溯位置信息
+     *
+     * @param int $depth 栈深度
+     */
+    function backtracePoint(int $depth = 2): array
+    {
+        return array_pop(
+            debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, $depth)
+        );
+    }
+}

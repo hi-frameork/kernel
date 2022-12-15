@@ -1,32 +1,29 @@
-# 单元测试运行镜像
-RUNTIME_IMAGE := anoxia/php-swoole:7.4-alpine3.12
-
-OS := $(shell uname | awk '{print tolower($$0)}')
-MACHINE := $(shell uname -m)
-
-# 基础路径
-BASE_DIR := $(shell pwd)
-
 .PHONY: help
 ## help: 打印帮助信息
 help:
 	@echo "使用说明:"
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed 's/^/ /'
 
-## dev: 启动本地开发环境
-.PHONY: dev
-dev:
-	@watchexec -w src -w tests make unit-test
+## tests: 单元测试
+.PHONY: tests
+tests: info
+	@watchexec -w src -w tests sh tests/make.sh tests
 
-## unit-test: 单元测试
-.PHONY: unit-test
-unit-test: info
-	@docker run --rm -v `pwd`:/app $(RUNTIME_IMAGE) sh /app/tests/run.sh
+## cs: 代码优化
+.PHONY: cs
+cs: info
+	@echo '> Code style format'
+	@sh tests/make.sh cs
 
+## custom: 自定义命令，例如 composer
+.PHONY: custom
+custom: info
+	@sh tests/make.sh custom
+
+# 打印环境信息
 info:
 	@echo "> 环境信息"
-	@echo 'basedir:' $(BASE_DIR)
-	@echo 'os:     ' $(OS)
-	@echo 'arch:   ' $(MACHINE)
+	@echo 'basedir:' $(shell pwd)
+	@echo 'os:     ' $(shell uname | awk '{print tolower($$0)}')
+	@echo 'arch:   ' $(shell uname -m)
 	@echo ""
-
