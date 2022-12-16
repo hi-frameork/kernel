@@ -36,47 +36,63 @@ function app(string $id)
     return kernel()->getContainer()->get($id);
 }
 
-function emergency(string $message, array $context = [])
-{
-    app('logger')->emergency($message, $context);
+if (!function_exists('emergency')) {
+    function emergency(string $message, array $context = [])
+    {
+        app('logger')->emergency($message, $context);
+    }
 }
 
-function alert(string $message, array $context = [])
-{
-    app('logger')->alert($message, $context);
+if (!function_exists('emergency')) {
+    function alert(string $message, array $context = [])
+    {
+        app('logger')->alert($message, $context);
+    }
 }
 
-function critical(string $message, array $context = [])
-{
-    app('logger')->critical($message, $context);
+if (!function_exists('emergency')) {
+    function critical(string $message, array $context = [])
+    {
+        app('logger')->critical($message, $context);
+    }
 }
 
-function error(string $message, array $context = [])
-{
-    app('logger')->error($message, $context);
+if (!function_exists('emergency')) {
+    function error(string $message, array $context = [])
+    {
+        app('logger')->error($message, $context);
+    }
 }
 
-function warning(string $message, array $context = [])
-{
-    app('logger')->warning($message, $context);
+if (!function_exists('emergency')) {
+    function warning(string $message, array $context = [])
+    {
+        app('logger')->warning($message, $context);
+    }
 }
 
-function notice(string $message, array $context = [])
-{
-    app('logger')->notice($message, $context);
+if (!function_exists('emergency')) {
+    function notice(string $message, array $context = [])
+    {
+        app('logger')->notice($message, $context);
+    }
 }
 
-function info(string $message, array $context = [])
-{
-    app('logger')->info($message, $context);
+if (!function_exists('emergency')) {
+    function info(string $message, array $context = [])
+    {
+        app('logger')->info($message, $context);
+    }
 }
 
-function debug(string $message, array $context = [])
-{
-    app('logger')->debug($message, $context);
+if (!function_exists('emergency')) {
+    function debug(string $message, array $context = [])
+    {
+        app('logger')->debug($message, $context);
+    }
 }
 
-if (!function_exists('backtrace')) {
+if (!function_exists('backtracePoint')) {
     /**
      * 返回指定调用回溯位置信息
      *
@@ -84,8 +100,8 @@ if (!function_exists('backtrace')) {
      */
     function backtracePoint(int $depth = 2): array
     {
-        return array_pop(
-            debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, $depth)
-        );
+        $traces = debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, $depth);
+
+        return array_pop($traces);
     }
 }
