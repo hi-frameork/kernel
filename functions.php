@@ -36,62 +36,6 @@ function app(string $id)
     return kernel()->getContainer()->get($id);
 }
 
-if (!function_exists('emergency')) {
-    function emergency(string $message, array $context = [])
-    {
-        app('logger')->emergency($message, $context);
-    }
-}
-
-if (!function_exists('alert')) {
-    function alert(string $message, array $context = [])
-    {
-        app('logger')->alert($message, $context);
-    }
-}
-
-if (!function_exists('critical')) {
-    function critical(string $message, array $context = [])
-    {
-        app('logger')->critical($message, $context);
-    }
-}
-
-if (!function_exists('error')) {
-    function error(string $message, array $context = [])
-    {
-        app('logger')->error($message, $context);
-    }
-}
-
-if (!function_exists('warning')) {
-    function warning(string $message, array $context = [])
-    {
-        app('logger')->warning($message, $context);
-    }
-}
-
-if (!function_exists('notice')) {
-    function notice(string $message, array $context = [])
-    {
-        app('logger')->notice($message, $context);
-    }
-}
-
-if (!function_exists('info')) {
-    function info(string $message, array $context = [])
-    {
-        app('logger')->info($message, $context);
-    }
-}
-
-if (!function_exists('debug')) {
-    function debug(string $message, array $context = [])
-    {
-        app('logger')->debug($message, $context);
-    }
-}
-
 if (!function_exists('backtracePoint')) {
     /**
      * 返回指定调用回溯位置信息
