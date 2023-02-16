@@ -11,7 +11,7 @@ class DefaultCommand extends Command
     /**
      * 服务名称
      */
-    protected string $title = '> Hi, Keep simple, keep reliable.';
+    protected string $title = '> Hi';
 
     /**
      * 服务别名
