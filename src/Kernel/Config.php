@@ -22,10 +22,10 @@ class Config
             return $this->data[$key];
         }
 
-        $point = &$this->data;
+        $point = $this->data;
         foreach (explode('.', $key) as $segment) {
             if (array_key_exists($segment, $point)) {
-                $point = &$point[$segment];
+                $point = $point[$segment];
             } else {
                 $point = [];
 
