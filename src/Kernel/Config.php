@@ -27,7 +27,7 @@ class Config
             if (array_key_exists($segment, $point)) {
                 $point = &$point[$segment];
             } else {
-                $point = null;
+                $point = [];
 
                 break;
             }
