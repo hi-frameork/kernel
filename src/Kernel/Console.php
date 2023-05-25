@@ -62,8 +62,10 @@ class Console
 
         foreach ($this->registers as $definition) {
             /** @var Command $instance */
-            $instance                                = $this->continer->get($definition);
-            $this->commands[$instance->getCommand()] = $instance;
+            $instance = $this->continer->get($definition);
+            if ($instance->getCommand()) {
+                $this->commands[$instance->getCommand()] = $instance;
+            }
         }
     }
 }
