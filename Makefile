@@ -15,11 +15,6 @@ cs: info
 	@echo '> Code style format'
 	@sh tests/make.sh cs
 
-## custom: 自定义命令，例如 composer
-.PHONY: custom
-custom: info
-	@sh tests/make.sh custom
-
 # 打印环境信息
 info:
 	@echo "> 环境信息"

@@ -19,11 +19,6 @@ case $1 in
   cs)
     COMMAND="docker run --name ${CONTAINER} ${MOUNT} ${IMAGE} php ${WORKDIR}/vendor/bin/php-cs-fixer fix --config=${WORKDIR}/.php-cs-fixer.dist.php"
   ;;
-  custom)
-    echo '输入自定义命令:'
-    read args
-    COMMAND="docker run --name ${CONTAINER} ${MOUNT} ${IMAGE} ${args}"
-  ;;
 esac
 
 # echo ${COMMAND}
