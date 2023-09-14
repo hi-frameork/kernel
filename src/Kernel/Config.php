@@ -24,11 +24,8 @@ class Config
 
         $point = $this->data;
         foreach (explode('.', $key) as $segment) {
-            if (array_key_exists($segment, $point)) {
-                $point = $point[$segment];
-            } else {
-                $point = [];
-
+            $point = $point[$segment] ?? [];
+            if (!$point) {
                 break;
             }
         }
