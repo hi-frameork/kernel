@@ -70,13 +70,14 @@ abstract class Command
 
         $theme = new Themes();
 
-        $content .= $theme->dark($this->title) . PHP_EOL;
-        $content .= $theme->dark($this->description) . PHP_EOL;
+        $content .= $theme->bold('> ' . $this->title) . PHP_EOL;
+        $content .= $theme->lightGray('+ ' . $this->description) . PHP_EOL;
         $content .= PHP_EOL;
         fwrite(STDOUT, $content);
 
-        $content = $theme->green('使用示例:') . PHP_EOL;
-        $content .= '  ' . $theme->cyan($this->example) . PHP_EOL;
+        $content = $theme->cyan('使用示例:') . PHP_EOL;
+        $example = $this->example ?: './bootstrap.php ' . $this->command . ' [action] [options]';
+        $content .= '  ' . $theme->green($example) . PHP_EOL;
         $content .= PHP_EOL;
         fwrite(STDOUT, $content);
 
@@ -86,7 +87,7 @@ abstract class Command
         }
         $maxLen += 6;
 
-        $content = $theme->green('可用命令:') . PHP_EOL;
+        $content = $theme->cyan('命令操作:') . PHP_EOL;
         foreach ($this->actions as $action => $description) {
             $content .= '  ' . $theme->whiteBold(str_pad($action, $maxLen, ' ', STR_PAD_RIGHT)) . $description . PHP_EOL;
         }

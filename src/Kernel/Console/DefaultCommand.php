@@ -11,7 +11,7 @@ class DefaultCommand extends Command
     /**
      * 服务名称
      */
-    protected string $title = '> Hi';
+    protected string $title = 'Hi';
 
     /**
      * 服务别名
@@ -21,7 +21,7 @@ class DefaultCommand extends Command
     /**
      * 服务介绍
      */
-    protected string $description = '+ Keep simple, keep reliable.';
+    protected string $description = 'Keep simple, keep reliable.';
 
     /**
      * 使用示例
