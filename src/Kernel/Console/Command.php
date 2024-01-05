@@ -86,7 +86,7 @@ abstract class Command
         foreach ($this->actions as $action => $description) {
             $maxLen = strlen($action) > $maxLen ? strlen($action) : $maxLen;
         }
-        $maxLen += 6;
+        $maxLen += 4;
         $content = $theme->green('可用命令:') . PHP_EOL;
         foreach ($this->actions as $action => $description) {
             $content .= '  ' . $theme->bold(str_pad($action, $maxLen, ' ', STR_PAD_RIGHT)) . $description . PHP_EOL;
