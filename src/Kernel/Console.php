@@ -30,9 +30,11 @@ class Console
     /**
      * @param string[]
      */
-    public function withCommands(array $commands)
+    public function withCommands(array $commands): self
     {
         $this->registers = array_merge($this->registers, $commands);
+
+        return $this;
     }
 
     public function dispatch(array $argv)
@@ -54,7 +56,7 @@ class Console
         ;
     }
 
-    protected function loadCommand()
+    protected function loadCommand(): self
     {
         foreach ($this->registers as $definition) {
             $this->continer->attempt($definition, $definition);
@@ -67,5 +69,7 @@ class Console
                 $this->commands[$instance->getCommand()] = $instance;
             }
         }
+
+        return $this;
     }
 }
