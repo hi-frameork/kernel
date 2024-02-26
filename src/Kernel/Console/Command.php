@@ -77,7 +77,7 @@ abstract class Command
 
         // 打印使用示例
         $content = $theme->green('使用示例:') . PHP_EOL;
-        $example = $this->example ?: './bootstrap.php ' . $this->command . ' [action] [options]';
+        $example = $this->example ?: './bootstrap.php ' . ($this->command ?: 'http') . ' [action] [options]';
         $content .= '  ' . $theme->cyan($example) . PHP_EOL;
         fwrite(STDOUT, $content . PHP_EOL);
 
