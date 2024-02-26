@@ -24,11 +24,6 @@ class DefaultCommand extends Command
     protected string $description = '+ Keep simple, keep reliable.';
 
     /**
-     * 使用示例
-     */
-    protected string $example = './bootstrap.php command [action] [options]';
-
-    /**
      * 可用操作
      */
     protected array $actions = [];
