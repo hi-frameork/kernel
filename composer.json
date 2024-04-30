@@ -4,13 +4,8 @@
     "license": "MIT",
     "require": {
         "php": ">=8.1",
-        "psr/container": "^2.0",
-        "alecrabbit/php-console-colour": "^0.10.1"
-    },
-    "require-dev": {
-        "friendsofphp/php-cs-fixer": "^3.11",
-        "vimeo/psalm": "^4.27",
-        "pestphp/pest": "^1.22"
+        "spiral/core": "^3.12",
+        "spiral/attributes": "^3.1"
     },
     "autoload": {
         "psr-4": {
