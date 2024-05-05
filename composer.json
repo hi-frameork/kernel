@@ -5,7 +5,10 @@
     "require": {
         "php": ">=8.1",
         "spiral/core": "^3.12",
-        "spiral/attributes": "^3.1"
+        "spiral/attributes": "^3.1",
+        "spiral/exceptions": "^3.12",
+        "spiral/debug": "^3.12",
+        "spiral/files": "^3.12"
     },
     "autoload": {
         "psr-4": {
