@@ -1,15 +1,42 @@
 .PHONY: help
-## help: 打印帮助信息
+## help: Print help
 help:
-	@echo "使用说明:"
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed 's/^/ /'
 
-## tests: 单元测试
+## shell: Attach current container
+.PHONY: shell
+shell: info
+	@sh tests/make.sh shell
+
+## stop: Stop current container
+.PHONY: stop
+stop: info
+	@sh tests/make.sh stop
+
+## tests: Run tests
 .PHONY: tests
 tests: info
-	@watchexec -w src -w tests sh tests/make.sh tests
+	@sh tests/make.sh tests
 
-## cs: 代码优化
+## check: Run code check
+.PHONY: check
+check: info
+	@echo '# Code check'
+	@sh tests/make.sh check
+
+## update: Run composer update
+.PHONY: update
+update: info
+	@echo '# update vender'
+	@sh tests/make.sh update
+
+## install: Run composer install
+.PHONY: install
+install: info
+	@echo '# install vender'
+	@sh tests/make.sh install
+
+## cs: Code formatting
 .PHONY: cs
 cs: info
 	@echo '> Code style format'
@@ -17,7 +44,7 @@ cs: info
 
 # 打印环境信息
 info:
-	@echo "> 环境信息"
+	@echo "> Environment info"
 	@echo 'basedir:' $(shell pwd)
 	@echo 'os:     ' $(shell uname | awk '{print tolower($$0)}')
 	@echo 'arch:   ' $(shell uname -m)
