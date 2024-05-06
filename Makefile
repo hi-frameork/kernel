@@ -3,10 +3,38 @@
 help:
 	@sed -n 's/^##//p' ${MAKEFILE_LIST} | column -t -s ':' |  sed 's/^/ /'
 
+## shell: Attach current container
+.PHONY: shell
+shell: info
+	@sh tests/make.sh shell
+
+## stop: Stop current container
+.PHONY: stop
+stop: info
+	@sh tests/make.sh stop
+
 ## tests: Run tests
 .PHONY: tests
 tests: info
-	@watchexec -w src -w tests sh tests/make.sh tests
+	@sh tests/make.sh tests
+
+## check: Run code check
+.PHONY: check
+check: info
+	@echo '# Code check'
+	@sh tests/make.sh check
+
+## update: Run composer update
+.PHONY: update
+update: info
+	@echo '# update vender'
+	@sh tests/make.sh update
+
+## install: Run composer install
+.PHONY: install
+install: info
+	@echo '# install vender'
+	@sh tests/make.sh install
 
 ## cs: Code formatting
 .PHONY: cs
@@ -15,7 +43,7 @@ cs: info
 	@sh tests/make.sh cs
 
 info:
-	@echo "> 环境信息"
+	@echo "> Environment info"
 	@echo 'basedir:' $(shell pwd)
 	@echo 'os:     ' $(shell uname | awk '{print tolower($$0)}')
 	@echo 'arch:   ' $(shell uname -m)
