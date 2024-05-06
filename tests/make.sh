@@ -3,7 +3,7 @@
 # 容器名称
 CONTAINER=$(basename `pwd`)-$(echo `pwd` | md5 | cut -c1-10)
 # 单元测试运行镜像
-IMAGE=anoxia/php-swoole:7.4-alpine3.12
+IMAGE=php:8.1-alpine
 WORKDIR=/var/www
 # 目录挂载
 MOUNT="-v `pwd`:${WORKDIR}"
